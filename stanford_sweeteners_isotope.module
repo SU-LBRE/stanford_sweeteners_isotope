@@ -1,0 +1,86 @@
+<?php
+/**
+ * @file
+ * Code for the Stanford Sweeteners Isotope feature.
+ */
+
+include_once 'stanford_sweeteners_isotope.features.inc';
+
+
+/**
+ * Trim up some bad junk.
+ * @param  [type] $item [description]
+ * @return [type]       [description]
+ */
+function stanford_sweeteners_isotope_trim($item){
+  //dpm($item);
+  // This is also do to the isotope elements.
+  $dataoption = trim(strip_tags(strtolower($item)));
+  $dataoption = str_replace(' ', '-', $dataoption);
+  $dataoption = str_replace('/', '-', $dataoption);
+  $dataoption = str_replace('&amp;', '', $dataoption);
+
+  return $dataoption;
+
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function stanford_sweeteners_isotope_libraries_info() {
+  $libraries = array();
+
+  $libraries['slick'] = array(
+    'name' => 'Slick Carousel',
+    'vendor url' => 'http://kenwheeler.github.io/slick/',
+    'download url' => 'https://github.com/kenwheeler/slick/archive/1.4.0.zip',
+    'version arguments' => array(
+      'file' => 'package.json',
+      'pattern' => '/(\d+\.?\d+\.?\d+\.?)/',
+      'lines' => 3,
+    ),
+    'files' => array(
+      'js' => array(
+        'slick/slick.min.js',
+      ),
+      'css' => array(
+        'slick/slick.css',
+        'slick/slick-theme.css',
+      )
+    ),
+  );
+
+  $libraries['jquery.isotope'] = array(
+    'name' => 'jQuery Isotope',
+    'vendor url' => 'http://isotope.metafizzy.co/',
+    'download url' => 'http://isotope.metafizzy.co/v1/jquery.isotope.min.js',
+    'version arguments' => array(
+      'file' => 'jquery.isotope.min.js',
+      'pattern' => '/(\d+\.?\d+\.?\d+\.?)/',
+      'lines' => 2,
+    ),
+    'files' => array(
+      'js' => array(
+        'jquery.isotope.min.js',
+      ),
+    ),
+  );
+
+  $libraries['jquery.imagesloaded'] = array(
+    'name' => 'jQuery ImagesLoaded',
+    'vendor url' => 'http://imagesloaded.desandro.com/',
+    'download url' => 'https://raw.githubusercontent.com/desandro/imagesloaded/v2.1.2/jquery.imagesloaded.min.js',
+    'version arguments' => array(
+      'file' => 'jquery.imagesloaded.min.js',
+      'pattern' => '/(\d+\.?\d+\.?\d+\.?)/',
+    ),
+    'files' => array(
+      'js' => array(
+        'jquery.imagesloaded.min.js',
+      ),
+    ),
+  );
+
+
+  return $libraries;
+}
