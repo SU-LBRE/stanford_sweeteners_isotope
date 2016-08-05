@@ -132,10 +132,12 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="stanford_directory_item">
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="[path]">
+<div class="stanford_directory_item">
 [field_s_directory_img] 
 <span class="service_directory_title"><h3>[field_s_directory_title]</h3></span>
-</div>';
+</div>
+</a>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -170,6 +172,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['header']['view_1']['table'] = 'views';
   $handler->display->display_options['header']['view_1']['field'] = 'view';
   $handler->display->display_options['header']['view_1']['view_to_insert'] = 'isotope_term_filter:block_1';
+  $handler->display->display_options['header']['view_1']['inherit_arguments'] = TRUE;
   $handler->display->display_options['path'] = 'service-directory';
   $export['isotope_page_grid'] = $view;
 
@@ -203,7 +206,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
