@@ -53,7 +53,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['fields']['field_s_directory_img']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_directory_img']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_s_directory_img']['settings'] = array(
-    'image_style' => 'sweetener_-_card',
+    'image_style' => '3-col-header',
     'image_link' => '',
     'custom_link_to_entity' => 1,
     'custom_prefix' => '',
