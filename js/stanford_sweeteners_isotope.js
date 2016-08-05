@@ -30,7 +30,7 @@ Stanford_sweeteners_isotope.init = function(context, settings) {
 
   // Loop through the containers...
   $.each(containers, function(i, v) {
-     console.log(v);
+
     // ...and add the masonry layout to them.
     $(v).isotope({
       itemSelector: '.isotope-element',
