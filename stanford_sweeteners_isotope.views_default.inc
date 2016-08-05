@@ -35,15 +35,26 @@ function stanford_sweeteners_isotope_views_default_views() {
     'title' => 0,
   );
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Directory Title */
+  $handler->display->display_options['fields']['field_s_directory_title']['id'] = 'field_s_directory_title';
+  $handler->display->display_options['fields']['field_s_directory_title']['table'] = 'field_data_field_s_directory_title';
+  $handler->display->display_options['fields']['field_s_directory_title']['field'] = 'field_s_directory_title';
+  $handler->display->display_options['fields']['field_s_directory_title']['label'] = '';
+  $handler->display->display_options['fields']['field_s_directory_title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_directory_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_directory_title']['settings'] = array(
+    'custom_link_to_entity' => 1,
+    'custom_prefix' => '',
+    'custom_suffix' => '',
+    'custom_reverse' => 0,
+    'custom_trim' => 0,
+    'custom_strtolower' => 0,
+    'custom_strtoupper' => 0,
+    'custom_ucfirst' => 0,
+    'custom_ucwords' => 0,
+    'custom_strip_tags' => 0,
+    'custom_strip_preserve' => '',
+  );
   /* Field: Content: Directory Image */
   $handler->display->display_options['fields']['field_s_directory_img']['id'] = 'field_s_directory_img';
   $handler->display->display_options['fields']['field_s_directory_img']['table'] = 'field_data_field_s_directory_img';
@@ -123,7 +134,7 @@ function stanford_sweeteners_isotope_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="stanford_directory_item">
 [field_s_directory_img] 
-<span class="service_directory_title"><h3>[title]</h3></span>
+<span class="service_directory_title"><h3>[field_s_directory_title]</h3></span>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
