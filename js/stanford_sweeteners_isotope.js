@@ -113,7 +113,6 @@ Stanford_sweeteners_isotope.event.update = function(view) {
   var groups = Stanford_sweeteners_isotope.get_active_filters_grouped(view);
   var container = view.find(".isotope-container:first");
   var count = view.find(".filters input").length;
-
   if (groups.length > 1) {
     var filters = [];
 
@@ -203,12 +202,13 @@ Stanford_sweeteners_isotope.get_active_filters_grouped = function(view) {
     filters[i] = [];
     var boxes = $(v).find("input:checked");
     boxes.each(function(ii, vv) {
-      filters[i].push($(vv).val());
+      // Since we are not grouping everything gets pushed to filters[0]
+      filters[0].push($(vv).val());
     });
-
-    if(filters[i].length <= 0) {
-      filters.splice(i, 1);
-    }
+    // Commenting out since we aren't grouping.
+    //if(filters[i].length <= 0) {
+    //  filters.splice(i, 1);
+    //}
 
   });
 
