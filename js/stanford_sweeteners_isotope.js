@@ -24,26 +24,28 @@ Stanford_sweeteners_isotope.init = function(context, settings) {
 
   // Cuz I don't want to wrap everything ok!
   $ = jQuery;
-
-  // There can be many.
-  var containers = $('.isotope-container', context);
-
-  // Loop through the containers...
-  $.each(containers, function(i, v) {
-
-    // ...and add the masonry layout to them.
-    $(v).isotope({
-      itemSelector: '.isotope-element',
-      sortAscending: true,
-      layoutMode: 'masonry'
+  
+  $('.isotope-container').imagesLoaded(function(){
+    
+    // There can be many.
+    var containers = $('.isotope-container', context);
+    
+    // Loop through the containers...
+    $.each(containers, function(i, v) {
+  
+      // ...and add the masonry layout to them.
+      $(v).isotope({
+        itemSelector: '.isotope-element',
+        sortAscending: true,
+        layoutMode: 'masonry'
+      });
+  
+      // Find the filters and set their change handler.
+      var filters = $(v).parents(".view:first").find(".isotope-options .filters");
+      Stanford_sweeteners_isotope.addevent.checkboxes(filters);
+      Stanford_sweeteners_isotope.addevent.clicklinks(filters);
     });
-
-    // Find the filters and set their change handler.
-    var filters = $(v).parents(".view:first").find(".isotope-options .filters");
-    Stanford_sweeteners_isotope.addevent.checkboxes(filters);
-    Stanford_sweeteners_isotope.addevent.clicklinks(filters);
   });
-
 };
 
 /**
